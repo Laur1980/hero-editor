@@ -1,0 +1,29 @@
+<!-- <div>
+  <label for="name">
+    <input type="text" #heroName placeholder="hero name"/>
+  </label>
+  <button (click)="onClick(heroName)">ADD HERO</button>
+</div> -->
+<div>
+  <label for="name">
+    <input type="text" 
+           [(ngModel)]="heroName" 
+           placeholder="Hero name"/>
+  </label>
+  <button (click)="onClick()">ADD HERO</button>
+</div>
+<ul class="heroes"> 
+  <li *ngFor="let hero of heroes"
+      [ngClass]="{
+        'selected': hero === selectedHero
+      }">
+      <a routerLink="/detail/{{ hero.id }}">
+        <p>
+          <span class="badge">{{ hero.id }}</span>
+          <span class="text">{{ hero.name | uppercase }} </span>
+        </p>
+       </a>
+       <button class="delete" 
+                  (click)="delete(hero)">DELETE THIS MORON!</button>
+  </li>
+</ul>

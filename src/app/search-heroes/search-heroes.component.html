@@ -1,0 +1,10 @@
+<div id="search-component">
+    <p>Search a hero: <input #heroName 
+                             (keyup)="search(heroName.value); heroName.value='' "> <button (click)="search(heroName.value)">SEARCH</button></p>
+    <ul class="search-result">
+        <li *ngFor="let item of result | async">
+            <a routerLink="/detail/{{item.id}}" [textContent]="item.name"></a>
+        </li>
+    </ul>
+</div>
+
